@@ -1,0 +1,6 @@
+{
+  "default_url": "api",
+  "PORT": 3001,
+  "DB_ADDRESS": "mongodb://localhost:27017/universe",
+  "jwt_secret": "321321313213123dsads"
+}
