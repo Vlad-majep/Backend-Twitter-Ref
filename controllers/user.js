@@ -28,8 +28,8 @@ const { user } = require('../models/User');
 const { MESSAGE, STATUS, SERVER_SETTING } = require('../utils/constants');
 
 // Twitter access keys
-const consumer_key = 'ВСТАВИТЬ';
-const consumer_secret = 'ВСТАВИТЬ';
+const consumer_key = 'uBNwVAGl9m3n403UlFDGu4OZg';
+const consumer_secret = 'GOfJKBkSqbqPLz7Z0ETSc4ucnpIr3WlXiGuInmbNe7BkeqXm00';
 
 const oauthClient = new oauth.OAuth(
   'https://api.twitter.com/oauth/request_token',
@@ -131,8 +131,8 @@ class Users {
       .catch(next);
   };
 
-   // Add wallet
-   addWallet = (req, res, next) => {
+  // Add wallet
+  addWallet = (req, res, next) => {
     const { _id } = req.user;
     user
       .findById(_id)
@@ -190,8 +190,8 @@ class Users {
         console.error('Error getting OAuth access token:', error);
         res.status(401).send({ message: "OAuth access token error" });
       } else {
-        const consumerKey = 'ВСТАВИТЬ';
-        const consumerSecret = 'ВСТАВИТЬ';
+        const consumerKey = 'uBNwVAGl9m3n403UlFDGu4OZg';
+        const consumerSecret = 'GOfJKBkSqbqPLz7Z0ETSc4ucnpIr3WlXiGuInmbNe7BkeqXm00';
 
         const oauth = OAuth({
           consumer: {
@@ -271,10 +271,12 @@ const users = new Users({
   jwt_secret: SERVER_SETTING.JWT_SECRET,
   cookie_setting: {
     expires: new Date(Date.now() + 12 * 3600000),
-    // httpOnly: true,
-    sameSite: 'None',
-    secure: 'production',
+    httpOnly: false,
+    sameSite: true,
+    secure: true,
+    domain: 'playuniverse.xyz',
   },
 });
+
 
 module.exports = { users };

@@ -21,10 +21,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: true,
+    origin: 'https://playuniverse.xyz',
     optionsSuccessStatus: 200,
     credentials: true,
-  }),
+  })
 );
 
 app.use(cookieParser());
